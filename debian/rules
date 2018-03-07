@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --builddirectory=build
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		--disable-silent-rules
+
+override_dh_auto_test:
+	dh_auto_test --max-parallel=1 -- VERBOSE=1
+
+override_dh_makeshlibs:
+	dh_makeshlibs -plibxcb1 --add-udeb=libxcb1-udeb -V'libxcb1 (>= 1.12)' -- -c4
+	dh_makeshlibs -Nlibxcb1 -V -- -c4
+
+override_dh_installdocs: debian/copyright.debian COPYING
+	cat $+ > debian/copyright
+	dh_installdocs
+
+override_dh_compress:
+	dh_compress -X.png -X.html -X.map -X.css
+
+override_dh_clean:
+	dh_clean
+	rm -f debian/copyright
