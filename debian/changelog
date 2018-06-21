@@ -1,3 +1,13 @@
+libxcb (1.13-2~ubuntu18.04) bionic-proposed; urgency=medium
+
+  [ Timo Aaltonen ]
+  * Package libxcb-xinput0/libxcb-xinput-dev. (Closes: #733227) (LP: #1777994)
+
+  [ Andreas Boll ]
+  * control: Fix VCS urls.
+
+ -- Jonathan Riddell <jr@jriddell.org>  Thu, 21 Jun 2018 13:52:59 +0300
+
 libxcb (1.13-1) unstable; urgency=medium
 
   [ Julien Cristau ]
